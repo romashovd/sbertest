@@ -1,4 +1,4 @@
-package com.sbrtest.app1;
+package com.sbrtest.app1.control;
 
 import com.sbrtest.app1.domain.Message;
 import com.sbrtest.app1.repos.MessageRepo;
@@ -16,16 +16,16 @@ public class GreetingController {
     @Autowired
     private MessageRepo messageRepo;
 
-    @GetMapping("/greeting")
+    @GetMapping("/")
     public String greeting(
-            @RequestParam(name="name", required=false, defaultValue="World") String name,
+            @RequestParam(name="name", required=false, defaultValue="Server") String name,
             Map<String, Object> model
     ) {
         model.put("name", name);
         return "greeting";
     }
 
-    @GetMapping
+    @GetMapping("/main")
     public String main(Map<String, Object> model) {
         Iterable<Message> messages = messageRepo.findAll();
 
@@ -38,9 +38,8 @@ public class GreetingController {
     public String add(@RequestParam String fname,
                       @RequestParam String lname,
                       @RequestParam String text,
-                      @RequestParam Date date,
                       Map<String, Object> model) {
-        Message message = new Message(fname, lname, text, date);
+        Message message = new Message(fname, lname, text);
 
         messageRepo.save(message);
 
@@ -51,18 +50,4 @@ public class GreetingController {
         return "main";
     }
 
-    @PostMapping("filter")
-    public String filter(@RequestParam String filter, Map<String, Object> model) {
-        Iterable<Message> messages;
-
-        if (filter != null && !filter.isEmpty()) {
-            messages = messageRepo.findByLname(filter);
-        } else {
-            messages = messageRepo.findAll();
-        }
-
-        model.put("messages", messages);
-
-        return "main";
-    }
 }

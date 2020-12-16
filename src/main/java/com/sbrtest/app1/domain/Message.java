@@ -11,20 +11,16 @@ public class Message {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
-
     private String text;
     private String fname;
     private String lname;
-    private Date date;
 
-    public Message() {
-    }
+    public Message() {}
 
-    public Message(String fname, String lname, String text, Date date) {
-        this.text = text;
+    public Message(String fname, String lname, String text) {
         this.fname = fname;
         this.lname = lname;
-        this.date = date;
+        this.text = text;
     }
 
     public Integer getId() {
@@ -59,11 +55,5 @@ public class Message {
         this.lname = lname;
     }
 
-    public Date getDate() {
-        return date;
-    }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
 }
