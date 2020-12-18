@@ -15,8 +15,8 @@ import java.util.Map;
 public class GreetingController {
     @Autowired
     private MessageRepo messageRepo;
-
-    @GetMapping("/")
+//Вывод Страницы приветствия с названием сервера
+    @GetMapping("/greeting")
     public String greeting(
             @RequestParam(name="name", required=false, defaultValue="Server") String name,
             Map<String, Object> model
@@ -24,8 +24,8 @@ public class GreetingController {
         model.put("name", name);
         return "greeting";
     }
-
-    @GetMapping("/main")
+//Вывод сообщений веб
+    @GetMapping("/")
     public String main(Map<String, Object> model) {
         Iterable<Message> messages = messageRepo.findAll();
 
@@ -33,7 +33,7 @@ public class GreetingController {
 
         return "main";
     }
-
+//Запись сообщений веб
     @PostMapping
     public String add(@RequestParam String fname,
                       @RequestParam String lname,

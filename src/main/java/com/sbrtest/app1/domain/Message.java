@@ -1,3 +1,4 @@
+
 package com.sbrtest.app1.domain;
 
 import javax.persistence.Entity;
@@ -6,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
+//Блок генерации данных в таблицы БД
 @Entity
 public class Message {
     @Id

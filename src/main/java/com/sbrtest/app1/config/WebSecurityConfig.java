@@ -1,3 +1,5 @@
+//Настройки безопасности
+
 package com.sbrtest.app1.config;
 
 import org.springframework.context.annotation.Bean;
@@ -10,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
+//Задаем доступы (настройки аутентификации)
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
