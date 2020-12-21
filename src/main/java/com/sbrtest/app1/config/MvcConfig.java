@@ -1,5 +1,5 @@
 //Авторизация
-
+/*
 package com.sbrtest.app1.config;
 
 import org.springframework.context.annotation.Configuration;
@@ -14,3 +14,4 @@ public class MvcConfig implements WebMvcConfigurer {
     }
 
 }
+*/

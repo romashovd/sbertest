@@ -1,5 +1,5 @@
 //Настройки безопасности
-
+/*
 package com.sbrtest.app1.config;
 
 import org.springframework.context.annotation.Bean;
@@ -44,3 +44,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new InMemoryUserDetailsManager(user);
     }
 }
+*/
