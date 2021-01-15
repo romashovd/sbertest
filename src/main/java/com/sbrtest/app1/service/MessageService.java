@@ -7,6 +7,8 @@ import com.sbrtest.app1.service.dto.MessageDto;
 import com.sbrtest.app1.service.mapper.MessageMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 //сервис передачи сообщений
 @Service
 public  class MessageService {
@@ -28,18 +30,18 @@ public  class MessageService {
     }
 
     //принимает имя, фамилию, тело сообщения и сохраняет в репозиторий
-    public MessageBodyDto confirmBody(String secondname, String name, Integer id){
-        RecivedMessage recivedMessage = messagesRepository.findByID(id);
+    public MessageBodyDto confirmBody(String secondname, String name, Integer id, String body){
+        RecivedMessage recivedMessage = messagesRepository.findAllRecivedMessage();
         recivedMessage.setBody(secondname);
         recivedMessage.setBody(name);
-        //recivedMessage.setBody(body);
+        recivedMessage.setBody(body);
         messagesRepository.save(recivedMessage);
         return messageMapper.toDtoBody(recivedMessage);
 
     }
     //взаимодествие с приложением App2 (кривое)
     public MessageBodyDto getMessageForApp2(){
-        RecivedMessage message = messagesRepository.findByID(1);
+        RecivedMessage message = messagesRepository.findAllRecivedMessage();
         return messageMapper.toDtoBody(message);
 
     }

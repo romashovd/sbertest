@@ -1,28 +1,27 @@
 package com.sbrtest.app1.domain;
 
-
 import javax.persistence.*;
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
-@Table(name = "recivedmessages") // задаем имя таблицы
+//@Table(name = "recivedmessages") // задаем имя таблицы
 
 public class RecivedMessage {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO) //стратегия автогенерация таблицы
-    @Column(name = "id")
+    @GeneratedValue//(strategy = GenerationType.IDENTITY) //стратегия автогенерация таблицы
+    //@Column(name = "id")
     private Integer ID; //уникальный идентификатор сообщения
 
-    @Column(name = "name")
+    //@Column(name = "name")
     private String Name; //Имя
 
-    @Column(name = "second_name")
+    //@Column(name = "second_name")
     private String SecondName; //Фамилия
 
-    @Column(name = "body")
+    //Column(name = "body")
     private String Body; // текст сообщения
 
-    @Column(name = "date")
+    //@Column(name = "date")
     private Date Timestamp; //дата
 
     public RecivedMessage() {

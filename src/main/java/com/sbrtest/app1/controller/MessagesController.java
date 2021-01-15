@@ -34,8 +34,9 @@ public class MessagesController {
     public ResponseEntity<MessageBodyDto> confirmId(
             @PathVariable String secondname,
             @PathVariable String name,
-            @PathVariable Integer id){
-        var messageBodyDto =  messageService.confirmBody(secondname, name, id);
+            @PathVariable Integer id,
+            @PathVariable String body){
+        var messageBodyDto =  messageService.confirmBody(secondname, name, id, body);
         return new ResponseEntity<MessageBodyDto>(messageBodyDto, HttpStatus.OK);
     }
 
